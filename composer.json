@@ -1,16 +1,9 @@
 {
-  "name": "gillesgoetsch/acf-smart-button",
-  "description": "A simple, clean and lean acf Field for internal and external links.",
-  "keywords": ["wordpress", "plugin", "acf", "button"],
-  "license": "GPLv2",
-  "authors": [
-    {
-      "name": "Gilles Goetsch",
-      "homepage": "http://kollektiv.ag"
+    "name": "impression/acf-basic-button",
+    "description": "Basic button with text input for text and url with target and rel drop downs",
+    "version" : "1.0",
+    "type": "wordpress-plugin",
+    "require": {
+        "php": "^5.5.6 || ^7.0",
     }
-  ],
-  "type": "wordpress-plugin",
-  "require": {
-    "php": ">=5.3.2"
-  }
 }
