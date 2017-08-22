@@ -29,40 +29,35 @@ class acf_field_basic_button extends acf_field {
 		/*
 		*  name (string) Single word, no spaces. Underscores allowed
 		*/
-
 		$this->name = 'basic_button';
 
 
 		/*
 		*  label (string) Multiple words, can include spaces, visible when selecting a field type
 		*/
-
-		$this->label = __('Basic Button');
+		$this->label = __('Basic button');
 
 
 		/*
 		*  category (string) basic | content | choice | relational | jquery | layout | CUSTOM GROUP NAME
 		*/
-
 		$this->category = 'basic';
 
 
 		/*
 		*  defaults (array) Array of default settings which are merged into the field object. These are used later in settings
 		*/
-
 		$this->defaults = array();
 
 
 		/*
 		*  settings (array) Store plugin settings (url, path, version) as a reference for later use with assets
 		*/
-
 		$this->settings = $settings;
 
 
 		// do not delete!
-    	parent::__construct();
+    parent::__construct();
 
 	}
 
@@ -91,6 +86,8 @@ class acf_field_basic_button extends acf_field {
 		*  More than one setting can be added by copy/paste the above code.
 		*  Please note that you must also have a matching $defaults value for the field name (font_size)
 		*/
+	$field = array_merge($field, array('class' => 'acf_basic_button_field'));
+	return $field;
 
 	}
 
@@ -122,10 +119,8 @@ class acf_field_basic_button extends acf_field {
 		$field['value']['text'] = isset($field['value']['text']) ? $field['value']['text'] : null;
 		$field['value']['url'] = isset($field['value']['url']) ? $field['value']['url'] : null;
 		$field['value']['target'] = isset($field['value']['target']) ? $field['value']['target'] : null;
-		$field['value']['rel'] = isset($field['value']['rel']) ? $field['value']['rel'] : null;
 
-		$targetValues = array(''=>'N/A','_self' => '_self', '_blank' => '_blank', '_parent' => '_parent', '_top' => '_top');
-		$relValues = array(''=>'N/A','alternate' => 'Alternate','author'=>'Author','bookmark'=>'Bookmark','external'=>'External','help'=>'Help','license'=>'License','next'=>'Next','nofollow'=>'No Follow','noreferrer'=>'No Referrer','noopener'=>'No Opener','prev'=>'Prev','search'=>'Search','tag'=>'Tag');
+		$targetValues = array('_self' => 'Current window (_self)', '_blank' => 'New window (_blank)');
 
 		?>
 
@@ -144,14 +139,6 @@ class acf_field_basic_button extends acf_field {
 						<select name="<?php echo $field_name ?>[target]">
 							<?php foreach($targetValues AS $value => $label): ?>
 								<option value="<?php echo $value ?>" <?php echo $value == $field['value']['target'] ? 'checked' : null ?>><?php echo $label ?></option>
-							<?php endforeach; ?>
-						</select>
-					</td>
-					<td>
-						<label><?php _e('Rel', 'acf-basic_button'); ?></label>
-						<select name="<?php echo $field_name ?>[rel]">
-							<?php foreach($relValues AS $value => $label): ?>
-								<option value="<?php echo $value ?>" <?php echo $value == $field['value']['rel'] ? 'checked' : null ?>><?php echo $label ?></option>
 							<?php endforeach; ?>
 						</select>
 					</td>
@@ -213,16 +200,23 @@ class acf_field_basic_button extends acf_field {
 	*  @param	n/a
 	*  @return	n/a
 	*/
+	function input_admin_head() { ?>
+		<style>
+			.acf-fields > .acf-field-basic-button {
+				padding-left: 0px;
+				padding-right: 0px;
+			}
+			.acf-field-basic-button > .acf-label,
+			.acf-field-basic-button > .acf-input{
+				padding-left: 12px;
+				padding-right: 12px;
+			}
+			.acf-basic-button-fields {
+				width: 100%;
+			}
+		</style>
+	<?php }
 
-	/*
-
-	function input_admin_head() {
-
-
-
-	}
-
-	*/
 
 
 	/*
