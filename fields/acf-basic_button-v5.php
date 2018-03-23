@@ -138,7 +138,7 @@ class acf_field_basic_button extends acf_field {
 						<label><?php _e('Target', 'acf-basic_button'); ?></label>
 						<select name="<?php echo $field_name ?>[target]">
 							<?php foreach($targetValues AS $value => $label): ?>
-								<option value="<?php echo $value ?>" <?php echo $value == $field['value']['target'] ? 'checked' : null ?>><?php echo $label ?></option>
+								<option value="<?php echo $value ?>" <?php echo $value == $field['value']['target'] ? 'selected' : null ?>><?php echo $label ?></option>
 							<?php endforeach; ?>
 						</select>
 					</td>
